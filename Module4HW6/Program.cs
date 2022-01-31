@@ -6,7 +6,8 @@ namespace Module4HW6
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var starter = new Starter();
+            starter.Run(args);
         }
     }
 }

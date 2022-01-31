@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "DATA SOURCE=(local);Integrated Security=True;DATABASE=MusicCollection"
+  }
+}

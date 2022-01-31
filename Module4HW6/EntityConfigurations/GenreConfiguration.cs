@@ -9,7 +9,9 @@ namespace Module4HW6.EntityConfigurations
         public void Configure(EntityTypeBuilder<Genre> builder)
         {
             builder.ToTable("Genre").HasKey(g => g.Id);
+            builder.Property(g => g.Id).ValueGeneratedOnAdd();
             builder.Property(g => g.Title).IsRequired().HasMaxLength(100);
+            builder.HasIndex(g => g.Title).IsUnique();
         }
     }
 }
