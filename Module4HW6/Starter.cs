@@ -11,19 +11,7 @@ namespace Module4HW6
     {
         public void Run(string[] args)
         {
-            ////var builder = new ConfigurationBuilder();
-            ////builder.SetBasePath(Directory.GetCurrentDirectory());
-            ////builder.AddJsonFile("Config.json");
-            ////var config = builder.Build();
-            ////var connectionString = config.GetConnectionString("DefaultConnection");
-
-            ////var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            ////var options = optionsBuilder.
-            ////    UseSqlServer(connectionString)
-            ////    .Options;
-            var factory = new SampleContextFactory();
-
-            using (var db = factory.CreateDbContext(args))
+            using (var db = new SampleContextFactory().CreateDbContext(args))
             {
                 var initializeDb = new InitializeDb(db);
                 initializeDb.AddTestData().GetAwaiter().GetResult();
