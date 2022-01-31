@@ -63,24 +63,30 @@ namespace Module4HW6.Migrations
                 name: "ArtistSong",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    ArtistId = table.Column<int>(type: "int", nullable: false),
+                    SongId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ArtistSong", x => x.Id);
+                    table.PrimaryKey("PK_ArtistSong", x => new { x.ArtistId, x.SongId });
                     table.ForeignKey(
-                        name: "FK_ArtistSong_Artist_Id",
-                        column: x => x.Id,
+                        name: "FK_ArtistSong_Artist_ArtistId",
+                        column: x => x.ArtistId,
                         principalTable: "Artist",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ArtistSong_Song_Id",
-                        column: x => x.Id,
+                        name: "FK_ArtistSong_Song_SongId",
+                        column: x => x.SongId,
                         principalTable: "Song",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ArtistSong_SongId",
+                table: "ArtistSong",
+                column: "SongId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Genre_Title",

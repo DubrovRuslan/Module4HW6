@@ -23,12 +23,12 @@ namespace Module4HW6.EntityConfigurations
                 j => j
                 .HasOne<Song>()
                 .WithMany()
-                .HasForeignKey("Id")
+                .HasForeignKey("SongId")
                 .OnDelete(DeleteBehavior.Cascade),
                 j => j
                 .HasOne<Artist>()
                 .WithMany()
-                .HasForeignKey("Id")
+                .HasForeignKey("ArtistId")
                 .OnDelete(DeleteBehavior.Cascade));
         }
     }

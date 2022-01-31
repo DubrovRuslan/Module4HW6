@@ -1,4 +1,5 @@
-﻿using Module4HW6.Helpers;
+﻿using System;
+using Module4HW6.Helpers;
 
 namespace Module4HW6
 {
@@ -11,6 +12,12 @@ namespace Module4HW6
                 var initializeDb = new InitializeDb(db);
                 initializeDb.AddTestData().GetAwaiter().GetResult();
                 var requests = new Requests(db);
+                Console.WriteLine("===== Request 1 ======");
+                requests.Request01().GetAwaiter().GetResult();
+                Console.WriteLine("===== Request 2 ======");
+                requests.Request02().GetAwaiter().GetResult();
+                Console.WriteLine("===== Request 3 ======");
+                requests.Request03().GetAwaiter().GetResult();
             }
 
             System.Console.ReadKey();

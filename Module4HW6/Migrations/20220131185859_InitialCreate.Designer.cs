@@ -10,7 +10,7 @@ using Module4HW6;
 namespace Module4HW6.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220131183423_InitialCreate")]
+    [Migration("20220131185859_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,10 +23,15 @@ namespace Module4HW6.Migrations
 
             modelBuilder.Entity("ArtistSong", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ArtistId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<int>("SongId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ArtistId", "SongId");
+
+                    b.HasIndex("SongId");
 
                     b.ToTable("ArtistSong");
                 });
@@ -114,13 +119,13 @@ namespace Module4HW6.Migrations
                 {
                     b.HasOne("Module4HW6.Entities.Artist", null)
                         .WithMany()
-                        .HasForeignKey("Id")
+                        .HasForeignKey("ArtistId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Module4HW6.Entities.Song", null)
                         .WithMany()
-                        .HasForeignKey("Id")
+                        .HasForeignKey("SongId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
