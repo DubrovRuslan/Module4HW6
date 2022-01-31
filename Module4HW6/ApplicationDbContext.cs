@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Module4HW6.Entities;
 using Module4HW6.EntityConfigurations;
 
@@ -15,6 +16,11 @@ namespace Module4HW6
         public DbSet<Artist> Artists { get; set; } = default!;
         public DbSet<Genre> Genres { get; set; } = default!;
         public DbSet<Song> Songs { get; set; } = default!;
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging().LogTo(Console.WriteLine, LogLevel.Information);
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

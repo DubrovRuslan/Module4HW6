@@ -10,7 +10,7 @@ using Module4HW6;
 namespace Module4HW6.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220131011102_InitialCreate")]
+    [Migration("20220131183423_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

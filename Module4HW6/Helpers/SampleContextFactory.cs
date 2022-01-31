@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
-namespace Module4HW6
+namespace Module4HW6.Helpers
 {
     public class SampleContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
     {
