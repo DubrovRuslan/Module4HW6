@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Database=MusicCollection;trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true"
+  }
+}

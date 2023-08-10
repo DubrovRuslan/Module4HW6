@@ -7,7 +7,7 @@
         public TimeSpan Duration { get; set; }
         public DateTimeOffset ReleasedDate { get; set; }
         public int GenreId { get; set; }
-        public Genre Genre { get; set; } = null!;
-        public List<Artist> Artists { get; set; } = new List<Artist>();
+        public virtual Genre Genre { get; set; } = null!;
+        public virtual List<Artist> Artists { get; set; } = new List<Artist>();
     }
 }

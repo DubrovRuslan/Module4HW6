@@ -4,6 +4,6 @@
     {
         public int Id { get; set; }
         public string Title { get; set; } = null!;
-        public List<Song> Songs { get; set; } = new List<Song>();
+        public virtual List<Song> Songs { get; set; } = new List<Song>();
     }
 }
